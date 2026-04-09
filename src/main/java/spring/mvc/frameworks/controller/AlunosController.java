@@ -28,7 +28,7 @@ public class AlunosController {
     public String novoAluno(Model model){
         model.addAttribute("aluno", new Alunos());
         model.addAttribute("cursos", cursoService.listarTodos());
-        return "cursos/form";
+        return "alunos/form";
     }
 
     @PostMapping("/salvar")
@@ -46,13 +46,13 @@ public class AlunosController {
         Alunos alunos = alunoService.buscarPorId(id)
                 .orElseThrow(() -> new RuntimeException("Aluno inválido: " + id));
         model.addAttribute("aluno", alunos);
-        model.addAttribute("curso", cursoService.listarTodos());
-        return "cursos/form";
+        model.addAttribute("cursos", cursoService.listarTodos());
+        return "alunos/form";
     }
 
     @GetMapping("/excluir/{id}")
-    public String excluirCurso(@PathVariable Long id){
-        cursoService.deletar(id);
-        return "redirect/cursos";
+    public String excluirAluno(@PathVariable Long id){
+        alunoService.deletar(id);
+        return "redirect/alunos";
     }
 }

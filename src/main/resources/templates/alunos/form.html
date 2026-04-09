@@ -8,22 +8,22 @@
 
 <body class="p-4">
 <div class="container">
-    <h1 th:text="${alunos.id != null} ? 'Editar Aluno' : 'Novo Aluno'"></h1>
-    <form action="/alunos/salvar" method="post" th:object="${alunos}">
+    <h1 th:text="${aluno.id != null} ? 'Editar Aluno' : 'Novo Aluno'"></h1>
+    <form action="/alunos/salvar" method="post" th:object="${aluno}">
         <input type="hidden" th:field="*{id}">
         <div class="mb-3">
-            <label for="nome" class="form-laber">Nome</label>
+            <label for="nome" class="form-label">Nome</label>
             <input type="text" th:field="*{nome}" class="form-control" id="nome" required>
         </div>
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>
-            <input type="text" th:field="*{nome}" class="form-control" id="email" placeholder="email@exemplo" required>
+            <input type="text" th:field="*{email}" class="form-control" id="email" placeholder="email@exemplo" required>
         </div>
         <div class="mb-3">
             <label for="curso" class="form-label">Cursos</label>
             <select th:field="*{cursos.id}" class="form-select" id="curso" required>
                 <option th:each="cur : ${cursos}" th:value="${cur.id}" th:text="${cur.nome}"
-                        th:selected="${cur.id == aluno.curso?.id}">Curso</option>
+                        th:selected="${cur.id == aluno.cursos?.id}">Curso</option>
             </select>
         </div>
 

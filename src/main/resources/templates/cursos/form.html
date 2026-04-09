@@ -12,7 +12,7 @@
     <form action="/cursos/salvar" method="post" th:object="${curso}">
         <input type="hidden" th:field="*{id}">
         <div class="mb-3">
-            <label for="nome" class="form-laber">Nome</label>
+            <label for="nome" class="form-label">Nome</label>
             <input type="text" th:field="*{nome}" class="form-control" id="nome" required>
         </div>
         <div class="mb-3">
@@ -20,7 +20,7 @@
             <input type="number" aria-setsize="0.01" th:field="*{cargaHoraria}" class="form-control" id="cargaHoraria" required>
         </div>
         <button type="submit" class="btn btn-primary">Salvar</button>
-        <a href="*/cursos" class="btn btn-secondary">Cancelar</a>
+        <a href="/cursos" class="btn btn-secondary">Cancelar</a>
     </form>
 </div>
 </body>

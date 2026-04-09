@@ -19,8 +19,8 @@ public class Cursos {
     private Long id;
 
     private String nome;
-    private int CargaHoraria;
+    private int cargaHoraria;
 
-    @OneToMany(mappedBy = "alunos", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "cursos", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Alunos> alunos;
 }
