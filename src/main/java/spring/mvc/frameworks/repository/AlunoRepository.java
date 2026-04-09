@@ -1,4 +1,7 @@
 package spring.mvc.frameworks.repository;
 
-public interface AlunoRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import spring.mvc.frameworks.model.Alunos;
+
+public interface AlunoRepository extends JpaRepository<Alunos, Long> {
 }

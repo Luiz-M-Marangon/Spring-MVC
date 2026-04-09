@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymelead.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cursos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body class="p-4">
+<div class="container">
+    <h1>Cursos</h1>
+    <a class="btn btn-sucess mb-3" href="/cursos/nova">Novo Curso</a>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Carga Horária</th>
+            <th>Ações</th>
+        </tr>
+        </thead>
+        <tr th:each="cursos : ${cursos}">
+            <td th:text="${cursos.id}"></td>
+            <td th:text="${cursos.nome}"></td>
+            <td th:text="${cursos.cargaHoraria}"></td>
+            <td>
+                <a th:href="@{'/cursos/editar/' + ${cursos.id}}" class="btn btn-primary btn-sm">Editar</a>
+                <a th:href="@{'/cursos/excluir/' + ${cursos.id}}" class="btn btn-danger btn-sm"
+                onclick="return confirm('Tem certeza que deseja excuir?')">Excluir</a>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
