@@ -24,11 +24,11 @@
             <td th:text="${aluno.id}"></td>
             <td th:text="${aluno.nome}"></td>
             <td th:text="${aluno.email}"></td>
-            <td th:text="${aluno.cursos != null ? alunos.cursos.nome : 'Sem curso'}"></td>
+            <td th:text="${aluno.cursos != null ? aluno.cursos.nome : 'Sem curso'}"></td>
             <td>
-                <a th:href="@{'/alunos/editar/' + ${alunos.id}}" class="btn btn-primary btn-sm">Editar</a>
-                <a th:href="@{'/alunos/excluir/' + ${alunos.id}}" class="btn btn-danger btn-sm"
-                   onclick="return confirm('Tem certeza que deseja excuir?')">Excluir</a>
+                <a th:href="@{'/alunos/editar/' + ${aluno.id}}" class="btn btn-primary btn-sm">Editar</a>
+                <a th:href="@{'/alunos/excluir/' + ${aluno.id}}" class="btn btn-danger btn-sm"
+                   onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
             </td>
         </tr>
         </tbody>

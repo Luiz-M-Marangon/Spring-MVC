@@ -53,6 +53,6 @@ public class AlunosController {
     @GetMapping("/excluir/{id}")
     public String excluirAluno(@PathVariable Long id){
         alunoService.deletar(id);
-        return "redirect/alunos";
+        return "redirect:/alunos";
     }
 }
