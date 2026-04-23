@@ -7,6 +7,7 @@ import spring.mvc.frameworks.model.Alunos;
 import spring.mvc.frameworks.service.AlunoService;
 import spring.mvc.frameworks.service.CursoService;
 import org.springframework.ui.Model;
+import spring.mvc.frameworks.service.ProjetoService;
 
 @Controller
 @RequestMapping("/alunos")
@@ -18,6 +19,9 @@ public class AlunosController {
     @Autowired
     private CursoService cursoService;
 
+    @Autowired
+    private ProjetoService projetoService;
+
     @GetMapping
     public String listarAlunos(Model model){
         model.addAttribute("alunos", alunoService.listarTodos());
@@ -28,6 +32,7 @@ public class AlunosController {
     public String novoAluno(Model model){
         model.addAttribute("aluno", new Alunos());
         model.addAttribute("cursos", cursoService.listarTodos());
+        model.addAttribute("projetos", projetoService.listarTodos();
         return "alunos/form";
     }
 
@@ -47,6 +52,7 @@ public class AlunosController {
                 .orElseThrow(() -> new RuntimeException("Aluno inválido: " + id));
         model.addAttribute("aluno", alunos);
         model.addAttribute("cursos", cursoService.listarTodos());
+        model.addAttribute("projetos", projetoService.listarTodos());
         return "alunos/form";
     }
 

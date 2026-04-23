@@ -26,6 +26,12 @@
                         th:selected="${cur.id == aluno.cursos?.id}">Curso</option>
             </select>
         </div>
+        <div class="mb-3">
+            <label for="projetos" class="fomr-label">Projetos</label>
+            <select multiple th:field="*{projetos}" class="form-select" id="projetos">
+                <option th:each="f : ${projetos}" th:value="${f.id}" th:text="${f.titulo}" th:selected="${aluno.projetos.contians(f)}"></option>
+            </select>
+        </div>
 
         <button type="submit" class="btn btn-primary">Salvar</button>
         <a href="/alunos" class="btn btn-secondary">Cancelar</a>
